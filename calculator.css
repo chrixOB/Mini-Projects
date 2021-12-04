@@ -1,7 +1,11 @@
 /* styling for calculator.html */
 
+*{
+    align-items: center;
+}
 table{
     border: 3px solid rgb(57, 52, 136);
+    transform: translateX(200px);
 }
 
 .row1{
@@ -12,4 +16,11 @@ table{
 .row2{
     background-color: cyan;
     border-radius: 5px;
+}
+
+.container{
+    border: 2px solid black;
+    width: 160px;
+    height: 20px;
+    transform: translateX(200px);
 }
