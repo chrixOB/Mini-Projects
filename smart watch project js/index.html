@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My smart watch</title>
+    <link href="./styles.css" rel="stylesheet">
+    <!-- <script src="./app.js"></script> -->
+</head>
+<body id="body">
+    <div class="header"></div>
+    <div class="main">
+        <div class="left">
+            <div class="top">
+                <div class="top__left"></div>
+                <div id="top__middle"></div>
+                <div class="top__right"></div>
+            </div>
+            <div class="middle">
+                <div class="display-area">
+                    <div class="actual-display">
+                        <div id="digital"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="bottom__left"></div>
+                <div id="bottom__middle"></div>
+                <div class="bottom__right"></div>
+            </div>
+            <div class="invisible-rectangle-top"></div>
+            <div class="invisible-rectangle-bottom"></div>
+            <div id="heart-rate-area">
+                <img src="../CHRIX/health page/assets/heart.jpg" alt="heart" class="red-heart">
+                <p class="rate-value"><span>78</span></p>
+            </div>
+    
+        </div>
+        
+        <div class="right">
+            <h3> FitBit 19 - The Smartest watch</h3>
+            <div class="lorem1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam omnis quisquam quaerat?</div>
+            <div class="lorem2">Lorem ipsum dolor sit amet consectetur.</div>
+
+            <div class="color-head">select color</div>
+            <div class="colors">
+                <div class="blue" onclick="changeToBlue()"></div>
+                <div class="orange" onclick="changeToOrange()"></div>
+                <div class="red" onclick="changeToRed()"></div>
+                <div class="purple" onclick="changeToPurple()"></div>
+            </div>
+            <div class="features-head">features</div>
+            <div class="features">
+                <div class="time">time</div>
+                <div id="heart-rate">heart rate</div>
+            </div>
+
+            <button>buy now</button>
+        </div>
+    </div>
+
+    <script>
+
+        
+       
+        const blue = document.querySelector(".blue");
+var red = document.getElementsByClassName("red");
+var orange = document.querySelector(".orange");
+var purple = document.querySelector(".purple");
+// var top_band = document.querySelector(".top__middle");
+// var bottom_band = document.querySelector(".bottom__middle");
+
+// blue.addEventListener("click", changeToBlue());
+
+function changeToBlue(){
+    // top_band.style.backgroundColor = "red";
+    // bottom_band.style.backgroundColor = "red";
+    document.getElementById('top__middle').style.backgroundColor = "blue";
+    document.getElementById('bottom__middle').style.backgroundColor = "blue";
+    console.log("blue");
+}
+
+// purple.addEventListener("click", changeToPurple());
+
+function changeToPurple(){
+    // top_band.style.backgroundColor = "red";
+    // bottom_band.style.backgroundColor = "red";
+    document.getElementById('top__middle').style.backgroundColor = "purple";
+    document.getElementById('bottom__middle').style.backgroundColor = "purple";
+    console.log("purple");
+}
+function changeToRed(){
+    // top_band.style.backgroundColor = "red";
+    // bottom_band.style.backgroundColor = "red";
+    document.getElementById('top__middle').style.backgroundColor = "red";
+    document.getElementById('bottom__middle').style.backgroundColor = "red";
+    console.log("Red");
+}
+function changeToOrange(){
+    // top_band.style.backgroundColor = "red";
+    // bottom_band.style.backgroundColor = "red";
+    document.getElementById('top__middle').style.backgroundColor = "orange";
+    document.getElementById('bottom__middle').style.backgroundColor = "orange";
+    console.log("Orange");
+}
+
+var heart_rate_button = document.getElementById('heart-rate');
+        var heart_rate_display = document.getElementById('heart-rate-area');
+        var time_button = document.querySelector('.time');
+        var time_display = document.querySelector('.display-area');
+        var actual_display = document.querySelector('.actual-display');
+        var red_heart = document.querySelector('.red-heart');
+        var rate_value = document.querySelector('.rate-value');
+
+        heart_rate_button.addEventListener("click", function(){
+            
+            heart_rate_display.style.display = "block";
+            time_display.style.display = "none";
+            red_heart.style.marginLeft = "27%"
+            red_heart.style.marginTop = "5px"
+            red_heart.style.marginBottom = "5%"
+            rate_value.style.marginLeft = "42%"
+            
+        })
+
+        
+        
+        time_button.addEventListener("click", function(){
+            heart_rate_display.style.display = "none";
+            time_display.style.display = "block";
+            // actual_display.style.border = "1px solid blue";
+            actual_display.style.marginTop = "40%";
+        })
+
+        function currentTime() {
+  let date = new Date(); 
+  let hh = date.getHours();
+  let mm = date.getMinutes();
+  let ss = date.getSeconds();
+  let session = "AM";
+
+  if(hh == 0){
+      hh = 12;
+  }
+  if(hh > 12){
+      hh = hh - 12;
+      session = "PM";
+   }
+
+   hh = (hh < 10) ? "0" + hh : hh;
+   mm = (mm < 10) ? "0" + mm : mm;
+   ss = (ss < 10) ? "0" + ss : ss;
+    
+   let time = hh + ":" + mm + ":" + ss + " " + session;
+
+  document.getElementById("digital").innerText = time; 
+  let t = setTimeout(function(){ currentTime() }, 1000);
+}
+currentTime();
+    </script>
+    
+</body>
+</html>

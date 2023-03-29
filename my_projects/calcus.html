@@ -36,6 +36,26 @@
 
         </div>
     </section>
+    <script>
+        let display = document.getElementById('display');
+
+        let buttons = array.from(document.getElementsByClassName('button'));
+        // console.log(buttons);
+
+        buttons.map( button => {
+            button.addEvenListener('click', (e) => {
+                switch(e.target.innertext){
+                    case '←':
+                        if(display.innerText){
+                            display.innerText = display.innerText.slice(0,-1);
+                        }
+                        break;
+
+                    }
+            })
+        })
+        
+    </script>
     
 </body>
 </html>
